@@ -4,7 +4,6 @@ const path = require('path');
 const bundlePath = path.join(__dirname, 'project-dist', 'bundle.css');
 const readPath = path.join(__dirname, 'styles');
 let distWriteStream = fs.createWriteStream(bundlePath);
-// const distPath = path.join(__dirname, 'project-dist', 'bundle.css');
 
 fs.readdir(readPath, (err, files) => {
   if (err) {
