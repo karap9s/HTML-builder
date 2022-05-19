@@ -6,6 +6,17 @@ const newPath = path.join(__dirname, 'files-copy');
 
 fs.promises.mkdir(newPath, { recursive: true });
 
+fs.readdir(newPath, (err, files) => {
+  for (let i = 0; i < files.length; i++) {
+    const filePath = path.join(newPath, files[i]);
+    fs.unlink(filePath, err => {
+      if (err) {
+        console.log(err);
+      }
+    });
+  }
+});
+
 fs.readdir(copyPath, (err, files) => {
   if (err)
     console.log(err);
